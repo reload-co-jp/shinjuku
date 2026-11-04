@@ -1,0 +1,114 @@
+import { describe, expect, it } from "vitest"
+import {
+  contents,
+  getArchiveMonths,
+  ARCHIVE_MIN_EVENTS,
+  getContentsByCategory,
+  getEventsInPeriod,
+  getUpcomingDaysEvents,
+  getMonthEvents,
+  getPlaceContents,
+  getRelatedContents,
+  getLatestContents,
+  getOngoingContentsByCategory,
+  getPlace,
+  getThemeEvents,
+  places,
+} from "./data"
+
+describe("data", () => {
+  it("places / contents が読み込まれる", () => {
+    expect(places.length).toBeGreaterThan(0)
+    expect(contents.length).toBeGreaterThan(0)
+  })
+
+  it("getThemeEvents はタグ付きの終了していないイベントのみ返す", () => {
+    const now = new Date("2026-11-17T12:00:00+09:00")
+    const events = getThemeEvents("free", now)
+    expect(
+      events.every(
+        (content) => (content.end_at ?? content.start_at)! >= "2026-11-17"
+      )
+    ).toBe(true)
+  })
+
+  it("getPlace はIDで取得できる", () => {
+    expect(getPlace("hanazono-jinja")?.name).toBe("花園神社")
+    expect(getPlace("unknown")).toBeUndefined()
+  })
+
+  it("getLatestContents は公開日降順", () => {
+    const latest = getLatestContents()
+    for (let i = 1; i < latest.length; i++) {
+      expect(latest[i - 1].published_at >= latest[i].published_at).toBe(true)
+    }
+  })
+
+  it("getContentsByCategory は該当カテゴリのみ返す", () => {
+    const popups = getContentsByCategory("popup")
+    expect(popups.length).toBeGreaterThan(0)
+    expect(popups.every((content) => content.category === "popup")).toBe(true)
+  })
+
+  it("getEventsInPeriod は期間重複イベントを返す", () => {
+    const events = getEventsInPeriod("2026-11-12", "2026-11-12")
+    expect(events.some((event) => event.id === 3)).toBe(true)
+    expect(events.some((event) => event.id === 9)).toBe(false)
+  })
+
+  it("getEventsInPeriod は開始が近い順(開催中は開始が新しい順で先頭)", () => {
+    const from = "2026-11-05"
+    const key = (start: string) => (start > from ? start : from)
+    const starts = getEventsInPeriod(from, "2026-12-31").map(
+      (event) => event.start_at ?? ""
+    )
+    for (let i = 1; i < starts.length; i++) {
+      const [a, b] = [starts[i - 1], starts[i]]
+      expect(key(a) < key(b) || (key(a) === key(b) && a >= b)).toBe(true)
+    }
+  })
+
+  it("getUpcomingDaysEvents は今日〜明後日の期間と重複するイベントを返す", () => {
+    const now = new Date("2026-11-05T12:00:00+09:00")
+    const expected = getEventsInPeriod("2026-11-05", "2026-11-07")
+    expect(getUpcomingDaysEvents(now)).toEqual(expected)
+  })
+
+  it("getOngoingContentsByCategory は開催中のみ返す", () => {
+    const ongoing = getOngoingContentsByCategory(
+      "illumination",
+      new Date("2026-11-12T12:00:00+09:00")
+    )
+    expect(ongoing.map((content) => content.id)).toEqual([3, 4])
+  })
+
+  it("getPlaceContents は開催中・今後・その他に重複なく分類", () => {
+    const now = new Date("2026-11-25T12:00:00+09:00")
+    const { ongoing, upcoming, others } = getPlaceContents(
+      "kinokuniya-hall",
+      now
+    )
+    const ids = [...ongoing, ...upcoming, ...others].map((c) => c.id)
+    expect(new Set(ids).size).toBe(ids.length)
+    expect(ids.length).toBe(
+      contents.filter((c) => c.place_id === "kinokuniya-hall").length
+    )
+    expect(upcoming.every((c) => (c.start_at ?? "") > "2026-11-25")).toBe(true)
+  })
+
+  it("getRelatedContents は自分を含まず上限以内", () => {
+    const target = contents.find((c) => c.place_id === "kinokuniya-hall")!
+    const related = getRelatedContents(target, 6)
+    expect(related.length).toBeLessThanOrEqual(6)
+    expect(related.some((c) => c.id === target.id)).toBe(false)
+    expect(related[0]?.place_id).toBe("kinokuniya-hall")
+  })
+
+  it("getArchiveMonths はしきい値以上の月のみ", () => {
+    for (const { year, month } of getArchiveMonths()) {
+      expect(getMonthEvents(year, month).length).toBeGreaterThanOrEqual(
+        ARCHIVE_MIN_EVENTS
+      )
+    }
+  })
+})
