@@ -26,38 +26,76 @@ URL: https://shinjuku.reload.co.jp
 
 ## 3. 情報源
 
+`data/sources.json` に一覧(`source_type` と優先度 `priority` 付き)。主なもの:
+
 ### 公的・地域情報
 
 - 新宿区: https://www.city.shinjuku.lg.jp/
 - 新宿区 新着情報: https://www.city.shinjuku.lg.jp/backnumber.html
-- 新宿観光振興協会 イベント: https://www.kanko-shinjuku.jp/event/
-- 環境省 新宿御苑: https://policies.env.go.jp/national-garden/shinjukugyoen/
-- GO TOKYO 新宿: https://www.gotokyo.org/jp/kanko/shinjuku/
+- 新宿観光振興協会 イベント: https://www.kanko-shinjuku.jp/event/-/index.html
+- 新宿観光振興協会 新着情報: https://www.kanko-shinjuku.jp/topics/-/index.html
+- 環境省 新宿御苑 お知らせ: https://policies.env.go.jp/national-garden/shinjukugyoen/news/
+- 新宿中央公園 イベント: https://shinjukuchuo-park.jp/events/
+- TOKYO Night & Light(都庁プロジェクションマッピング): https://tokyoprojectionmappingproject.jp/
+- GO TOKYO: https://www.gotokyo.org/jp/
 
 ### 寺社・季節行事
 
 - 花園神社: http://hanazono-jinja.or.jp/(酉の市・例大祭)
 - 十二社 熊野神社: https://www.12so-kumanojinja.or.jp/
+- 赤城神社(神楽坂): https://www.akagi-jinja.jp/
 
-### 公演・展示
+### 公演・ライブ・映画
 
 - 紀伊國屋ホール・紀伊國屋寄席: https://store.kinokuniya.co.jp/event/
-- SOMPO美術館: https://www.sompo-museum.org/
+- 新宿末廣亭: https://www.suehirotei.com/
+- THEATER MILANO-Za: https://www.milano-za.jp/
+- Zepp Shinjuku: https://www.zepp.co.jp/hall/shinjuku/schedule/
+- 新宿LOFT: https://www.loft-prj.co.jp/schedule/loft
+- 東京オペラシティ コンサートカレンダー: https://www.operacity.jp/concert/calendar/
+- 新宿ピカデリー: https://www.smt-cinema.com/site/shinjuku/
+
+### 美術館・展示
+
+- SOMPO美術館: https://www.sompo-museum.org/exhibitions/schedule/
+- 東京オペラシティ アートギャラリー: https://www.operacity.jp/ag/
+- 草間彌生美術館: https://yayoikusamamuseum.jp/
+- 早稲田大学演劇博物館: https://enpaku.w.waseda.jp/
 - 新宿歌舞伎町春画展: https://www.smappa.net/shunga/
 
 ### 商業施設・広場
 
-- 新宿住友ビル三角広場: https://www.sumitomo-sankakuhiroba.jp/event/
-- 新宿中央公園: https://shinjukuchuo-park.jp/events/
+- 東急歌舞伎町タワー: https://www.tokyu-kabukicho-tower.jp/
 - 歌舞伎町タウン・マネージメント: https://www.d-kabukicho.com/events/
-- ルミネエスト新宿 / 伊勢丹新宿店 / 新宿マルイ / NEWoMan 新宿 の各イベント・トピックスページ
+- 新宿住友ビル三角広場: https://www.sumitomo-sankakuhiroba.jp/event/
+- 新宿パークタワー: https://www.shinjukuparktower.com/
+- 伊勢丹新宿店 / 新宿高島屋 / 小田急百貨店 / 京王百貨店
+- ルミネ新宿 / ルミネエスト新宿 / NEWoMan新宿 / 新宿マルイ
+- 神楽坂通り商店会: https://www.kagurazaka.in/
 
-### プレスリリース・イベントプラットフォーム
+### プレスリリース・ニュース(エリア別検索)
 
-- PR TIMES「新宿」検索: https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E6%96%B0%E5%AE%BF
+- PR TIMES: 新宿・西新宿・歌舞伎町・新宿三丁目・新大久保・高田馬場・神楽坂・四谷
+- Google ニュース RSS: 同上(四谷は同名地名と区別するため「四谷 新宿区」)
 - @Press
+- 新宿ニュースBlog: https://shinjukunews.com/
+- Daily Shinjuku: https://daily-shinjuku.tokyo/
+
+### イベントプラットフォーム・グルメ
+
 - 新宿イベント情報: https://www.shinjukuevent.com/
-- ジョルダン イルミネーション特集(新宿)
+- ウォーカープラス 新宿区: https://www.walkerplus.com/event_list/ar0313104/shinjuku/
+- レッツエンジョイ東京 新宿駅周辺: https://www.enjoytokyo.jp/event/list/sta200211/
+- ジョルダン イルミネーション特集: https://sp.jorudan.co.jp/illumi/
+- 食べログ 新宿・代々木・大久保: https://tabelog.com/tokyo/A1304/(新店候補の発見用)
+
+### 情報源の優先順位
+
+1. 行政・公的機関
+2. 寺社・施設・店舗の公式サイト
+3. 公式プレスリリース
+4. イベントプラットフォーム・地域Webメディア・ニュース検索
+5. 食べログ等
 
 ### 情報源の扱い
 
