@@ -1,0 +1,93 @@
+[
+  {
+    "id": "shinjuku-city",
+    "name": "新宿区",
+    "url": "https://www.city.shinjuku.lg.jp/",
+    "source_type": "government",
+    "priority": 1
+  },
+  {
+    "id": "kanko-shinjuku",
+    "name": "新宿観光振興協会",
+    "url": "https://www.kanko-shinjuku.jp/event/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "env-shinjukugyoen",
+    "name": "環境省 新宿御苑",
+    "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/",
+    "source_type": "government",
+    "priority": 1
+  },
+  {
+    "id": "gotokyo",
+    "name": "GO TOKYO（東京の観光公式サイト）",
+    "url": "https://www.gotokyo.org/jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "sompo-museum",
+    "name": "SOMPO美術館",
+    "url": "https://www.sompo-museum.org/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "kinokuniya",
+    "name": "紀伊國屋書店 イベント情報",
+    "url": "https://store.kinokuniya.co.jp/event/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "smappa-shunga",
+    "name": "新宿歌舞伎町春画展",
+    "url": "https://www.smappa.net/shunga/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "shinjukuevent",
+    "name": "新宿イベント情報",
+    "url": "https://www.shinjukuevent.com/",
+    "source_type": "event_platform",
+    "priority": 4
+  },
+  {
+    "id": "jorudan-illumi",
+    "name": "ジョルダン イルミネーション特集",
+    "url": "https://sp.jorudan.co.jp/illumi/",
+    "source_type": "event_platform",
+    "priority": 4
+  },
+  {
+    "id": "ramenrally",
+    "name": "高田馬場・早稲田ラーメンラリー",
+    "url": "https://ramenrally.jimore.net/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "prtimes",
+    "name": "PR TIMES",
+    "url": "https://prtimes.jp/",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "atpress",
+    "name": "@Press",
+    "url": "https://www.atpress.ne.jp/",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "gluck",
+    "name": "GLUCK 公式サイト",
+    "url": "https://gluck.style/",
+    "source_type": "official",
+    "priority": 2
+  }
+]

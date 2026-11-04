@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&amp;family=Noto+Sans+JP:wght@700;900&amp;display=block");
+    .en { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 700; }
+    .ja { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-weight: 900; }
+    .sub { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-weight: 700; }
+  </style>
+  <defs>
+    <radialGradient id="pink" cx="100%" cy="0%" r="80%">
+      <stop offset="0" stop-color="#FF2D7A" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#FF2D7A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyan" cx="0%" cy="100%" r="70%">
+      <stop offset="0" stop-color="#29D3E6" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#29D3E6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#15161A"/>
+  <rect width="1200" height="630" fill="url(#pink)"/>
+  <rect width="1200" height="630" fill="url(#cyan)"/>
+  <path d="M0 630V500h55V430h45v70h35V350h65v280h15V300h75v330h20V440h50V370h30v260h25V250l35-30 35 30v380h20V450h60v180h25V330h70v300h20V470h45V390h55v240h30V420h50v210h45V340h70v290z" fill="#fff" fill-opacity=".08"/>
+  <rect x="90" y="150" width="14" height="170" fill="#FF2D7A"/>
+  <text class="en" x="130" y="250" font-size="110" fill="#FF2D7A">SHINJUKU</text>
+  <text class="en" x="130" y="320" font-size="54" fill="#F5F5F3" letter-spacing="6">JOURNAL</text>
+  <text class="ja" x="90" y="430" font-size="64" fill="#F5F5F3">新宿ライブ</text>
+  <text class="sub" x="90" y="490" font-size="28" fill="#F5F5F3" fill-opacity=".85">新宿のイベント・新店舗・地域ニュースを毎日更新</text>
+</svg>
