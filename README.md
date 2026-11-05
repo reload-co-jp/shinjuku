@@ -104,7 +104,25 @@ URL: https://shinjuku.reload.co.jp
 - 画像はプレスリリース・公式の告知画像のみ `public/images/contents/` に保存し、出典URLを `source_url` に残す
 - 確認できない項目(時間・料金など)は推測で書かず「公式サイトで確認を」と記す
 
-## 4. データ
+## 4. 記事の自動取得
+
+`scripts/fetch-contents.mjs` が `data/sources.json` の情報源(`crawl: false` を除く)を巡回し、Claude Code CLI(headless)で記事候補を抽出して `data/contents.json` に追加する。浅草ライブの同名スクリプトを新宿向けに移植したもの。
+
+```bash
+pnpm fetch-contents                          # 全情報源
+pnpm fetch-contents --source=kanko-shinjuku  # 情報源を指定(カンマ区切りで複数可)
+pnpm fetch-contents --dry-run                # 書き込まずに結果だけ表示
+pnpm fetch-contents --limit=5                # 巡回する情報源の数を制限
+```
+
+- 認証: `CLAUDE_CODE_OAUTH_TOKEN` または `ANTHROPIC_API_KEY`(claude CLI が解決)。モデルは `ANTHROPIC_MODEL`(既定 `sonnet`)
+- 一覧ページから候補を抽出し、個別ページがあれば開いて出典を個別URLにする。Google ニュースのリンクは元記事URLに変換する
+- 既存記事との重複はタイトル類似度・開催日で判定(`scripts/lib/dedup.mjs`)。重複時は破棄せず出典URL・本文・タグを補強する
+- 終了済みイベント・日付の不正な候補は捨てる。画像は `public/images/contents/{id}.{ext}` に保存
+- 分類(カテゴリ・エリア・テーマ)は `scripts/lib/taxonomy.mjs`。`lib/types.ts` と一致することをテストで確認している
+- GitHub Actions の `Fetch contents` ワークフローが毎日 JST 5:23 に実行し、テスト・ビルドが通れば commit してデプロイを起動する(手動実行で情報源の指定も可)。リポジトリの Secrets に `CLAUDE_CODE_OAUTH_TOKEN` が必要
+
+## 5. データ
 
 JSON を静的に読み込む(`lib/data.ts`)。
 
@@ -134,7 +152,7 @@ id, name, type, description, address, latitude, longitude, opening_hours, phone,
 url, image_url, area, source_id, source_url, updated_at
 ```
 
-## 5. サイト構成
+## 6. サイト構成
 
 - `/` トップ(今日・今週末・今週・新店舗・最新情報・カテゴリー・エリア・スポット)
 - `/events/` 開催中・開催予定のイベントと開催スケジュール
@@ -146,7 +164,7 @@ url, image_url, area, source_id, source_url, updated_at
 - `/search/` サイト内検索
 - `/sitemap.xml` `/news-sitemap.xml` `/robots.txt`
 
-## 6. コマンド
+## 7. コマンド
 
 ```bash
 pnpm install
@@ -159,10 +177,12 @@ pnpm build   # out/ に静的出力
 
 OGP画像は `scripts/og-image.svg` を元に `public/opengraph-image.png` として書き出している。
 
-## 7. 環境変数
+## 8. 環境変数
 
 - `NEXT_PUBLIC_GA_ID` GA4 の測定ID。未設定なら計測タグを出力しない
+- `CLAUDE_CODE_OAUTH_TOKEN` / `ANTHROPIC_API_KEY` 記事の自動取得用
+- `ANTHROPIC_MODEL` 記事の自動取得に使うモデル(既定 `sonnet`)
 
-## 8. デプロイ
+## 9. デプロイ
 
 `main` への push と毎日 JST 0:05 のスケジュールで GitHub Actions がビルドし GitHub Pages に公開する。カスタムドメイン(shinjuku.reload.co.jp)はリポジトリの Pages 設定で指定する。

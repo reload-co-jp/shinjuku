@@ -4,7 +4,8 @@
     "name": "新宿区",
     "url": "https://www.city.shinjuku.lg.jp/",
     "source_type": "government",
-    "priority": 1
+    "priority": 1,
+    "crawl": false
   },
   {
     "id": "kanko-shinjuku",
@@ -18,21 +19,24 @@
     "name": "環境省 新宿御苑",
     "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/",
     "source_type": "government",
-    "priority": 1
+    "priority": 1,
+    "crawl": false
   },
   {
     "id": "gotokyo",
     "name": "GO TOKYO（東京の観光公式サイト）",
     "url": "https://www.gotokyo.org/jp/",
     "source_type": "official",
-    "priority": 2
+    "priority": 2,
+    "crawl": false
   },
   {
     "id": "sompo-museum",
     "name": "SOMPO美術館",
     "url": "https://www.sompo-museum.org/",
     "source_type": "official",
-    "priority": 2
+    "priority": 2,
+    "crawl": false
   },
   {
     "id": "kinokuniya",
@@ -60,7 +64,8 @@
     "name": "ジョルダン イルミネーション特集",
     "url": "https://sp.jorudan.co.jp/illumi/",
     "source_type": "event_platform",
-    "priority": 4
+    "priority": 4,
+    "crawl": false
   },
   {
     "id": "ramenrally",
@@ -74,21 +79,24 @@
     "name": "PR TIMES",
     "url": "https://prtimes.jp/",
     "source_type": "press_release",
-    "priority": 3
+    "priority": 3,
+    "crawl": false
   },
   {
     "id": "atpress",
     "name": "@Press",
     "url": "https://www.atpress.ne.jp/",
     "source_type": "press_release",
-    "priority": 3
+    "priority": 3,
+    "crawl": false
   },
   {
     "id": "gluck",
     "name": "GLUCK 公式サイト",
     "url": "https://gluck.style/",
     "source_type": "official",
-    "priority": 2
+    "priority": 2,
+    "crawl": false
   },
   {
     "id": "shinjuku-city-news",

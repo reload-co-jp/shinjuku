@@ -180,4 +180,6 @@ export type Source = {
   url: string
   source_type: SourceType
   priority: number
+  // false: 記事の出典としてのみ使い、scripts/fetch-contents.mjs の巡回対象にしない(トップページ等)
+  crawl?: boolean
 }
