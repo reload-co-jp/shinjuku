@@ -9,7 +9,7 @@ import { SITE_URL } from "@/lib/json-ld"
 import "../reset.css"
 
 // GA4の測定ID。未設定ならタグを出さない
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? ""
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-7MCDDY9EBF"
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { t } = await getDictionary()

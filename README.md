@@ -179,7 +179,7 @@ OGP画像は `scripts/og-image.svg` を元に `public/opengraph-image.png` と�
 
 ## 8. 環境変数
 
-- `NEXT_PUBLIC_GA_ID` GA4 の測定ID。未設定なら計測タグを出力しない
+- `NEXT_PUBLIC_GA_ID` GA4 の測定ID。未設定なら `G-7MCDDY9EBF` を使う
 - `CLAUDE_CODE_OAUTH_TOKEN` / `ANTHROPIC_API_KEY` 記事の自動取得用
 - `ANTHROPIC_MODEL` 記事の自動取得に使うモデル(既定 `sonnet`)
 
