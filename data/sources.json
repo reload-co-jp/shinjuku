@@ -4,12 +4,13 @@
     "name": "新宿区",
     "url": "https://www.city.shinjuku.lg.jp/",
     "source_type": "government",
-    "priority": 1
+    "priority": 1,
+    "crawl": false
   },
   {
     "id": "kanko-shinjuku",
     "name": "新宿観光振興協会",
-    "url": "https://www.kanko-shinjuku.jp/event/",
+    "url": "https://www.kanko-shinjuku.jp/event/-/index.html",
     "source_type": "official",
     "priority": 2
   },
@@ -18,21 +19,24 @@
     "name": "環境省 新宿御苑",
     "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/",
     "source_type": "government",
-    "priority": 1
+    "priority": 1,
+    "crawl": false
   },
   {
     "id": "gotokyo",
     "name": "GO TOKYO（東京の観光公式サイト）",
     "url": "https://www.gotokyo.org/jp/",
     "source_type": "official",
-    "priority": 2
+    "priority": 2,
+    "crawl": false
   },
   {
     "id": "sompo-museum",
     "name": "SOMPO美術館",
     "url": "https://www.sompo-museum.org/",
     "source_type": "official",
-    "priority": 2
+    "priority": 2,
+    "crawl": false
   },
   {
     "id": "kinokuniya",
@@ -60,7 +64,8 @@
     "name": "ジョルダン イルミネーション特集",
     "url": "https://sp.jorudan.co.jp/illumi/",
     "source_type": "event_platform",
-    "priority": 4
+    "priority": 4,
+    "crawl": false
   },
   {
     "id": "ramenrally",
@@ -74,20 +79,394 @@
     "name": "PR TIMES",
     "url": "https://prtimes.jp/",
     "source_type": "press_release",
-    "priority": 3
+    "priority": 3,
+    "crawl": false
   },
   {
     "id": "atpress",
     "name": "@Press",
     "url": "https://www.atpress.ne.jp/",
     "source_type": "press_release",
-    "priority": 3
+    "priority": 3,
+    "crawl": false
   },
   {
     "id": "gluck",
     "name": "GLUCK 公式サイト",
     "url": "https://gluck.style/",
     "source_type": "official",
+    "priority": 2,
+    "crawl": false
+  },
+  {
+    "id": "shinjuku-city-news",
+    "name": "新宿区 新着情報",
+    "url": "https://www.city.shinjuku.lg.jp/backnumber.html",
+    "source_type": "government",
+    "priority": 1
+  },
+  {
+    "id": "shinjuku-gyoen-news",
+    "name": "新宿御苑 お知らせ",
+    "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/news/",
+    "source_type": "government",
+    "priority": 1
+  },
+  {
+    "id": "tokyo-projection-mapping",
+    "name": "TOKYO Night & Light(都庁プロジェクションマッピング)",
+    "url": "https://tokyoprojectionmappingproject.jp/",
+    "source_type": "government",
+    "priority": 1
+  },
+  {
+    "id": "shinjukuchuo-park",
+    "name": "新宿中央公園 イベント",
+    "url": "https://shinjukuchuo-park.jp/events/",
+    "source_type": "official",
     "priority": 2
+  },
+  {
+    "id": "kanko-shinjuku-news",
+    "name": "新宿観光振興協会 新着情報",
+    "url": "https://www.kanko-shinjuku.jp/topics/-/index.html",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "hanazono-jinja",
+    "name": "花園神社",
+    "url": "http://hanazono-jinja.or.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "juniso-kumano",
+    "name": "十二社 熊野神社",
+    "url": "https://www.12so-kumanojinja.or.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "akagi-jinja",
+    "name": "赤城神社(神楽坂)",
+    "url": "https://www.akagi-jinja.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "suehirotei",
+    "name": "新宿末廣亭",
+    "url": "https://www.suehirotei.com/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "milano-za",
+    "name": "THEATER MILANO-Za(東急歌舞伎町タワー)",
+    "url": "https://www.milano-za.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "zepp-shinjuku",
+    "name": "Zepp Shinjuku スケジュール",
+    "url": "https://www.zepp.co.jp/hall/shinjuku/schedule/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "shinjuku-loft",
+    "name": "新宿LOFT スケジュール",
+    "url": "https://www.loft-prj.co.jp/schedule/loft",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "operacity-concert",
+    "name": "東京オペラシティ コンサートカレンダー",
+    "url": "https://www.operacity.jp/concert/calendar/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "smt-shinjuku",
+    "name": "新宿ピカデリー",
+    "url": "https://www.smt-cinema.com/site/shinjuku/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "sompo-museum-schedule",
+    "name": "SOMPO美術館 展覧会スケジュール",
+    "url": "https://www.sompo-museum.org/exhibitions/schedule/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "operacity-ag",
+    "name": "東京オペラシティ アートギャラリー",
+    "url": "https://www.operacity.jp/ag/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "yayoi-kusama-museum",
+    "name": "草間彌生美術館",
+    "url": "https://yayoikusamamuseum.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "enpaku",
+    "name": "早稲田大学演劇博物館",
+    "url": "https://enpaku.w.waseda.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "tokyu-kabukicho-tower",
+    "name": "東急歌舞伎町タワー",
+    "url": "https://www.tokyu-kabukicho-tower.jp/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "d-kabukicho",
+    "name": "歌舞伎町タウン・マネージメント イベントカレンダー",
+    "url": "https://www.d-kabukicho.com/events/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "sumitomo-sankaku",
+    "name": "新宿住友ビル三角広場 イベント",
+    "url": "https://www.sumitomo-sankakuhiroba.jp/event/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "shinjuku-park-tower",
+    "name": "新宿パークタワー",
+    "url": "https://www.shinjukuparktower.com/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "isetan-shinjuku",
+    "name": "伊勢丹新宿店",
+    "url": "https://www.mistore.jp/store/shinjuku.html",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "takashimaya-shinjuku",
+    "name": "新宿高島屋",
+    "url": "https://www.takashimaya.co.jp/shinjuku/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "odakyu-dept",
+    "name": "小田急百貨店 新宿店",
+    "url": "https://www.odakyu-dept.co.jp/shinjuku/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "keio-dept",
+    "name": "京王百貨店 新宿店",
+    "url": "https://www.keionet.com/info/shinjuku/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "lumine-shinjuku",
+    "name": "ルミネ新宿",
+    "url": "https://www.lumine.ne.jp/shinjuku/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "lumine-est",
+    "name": "ルミネエスト新宿",
+    "url": "https://www.lumine.ne.jp/est/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "newoman-shinjuku",
+    "name": "NEWoMan新宿 トピックス",
+    "url": "https://www.newoman.jp/shinjuku/topics/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "marui-shinjuku",
+    "name": "新宿マルイ 本館",
+    "url": "https://www.0101.co.jp/003/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "kagurazaka",
+    "name": "神楽坂通り商店会",
+    "url": "https://www.kagurazaka.in/",
+    "source_type": "official",
+    "priority": 2
+  },
+  {
+    "id": "waseda-news",
+    "name": "早稲田大学 ニュース",
+    "url": "https://www.waseda.jp/top/news",
+    "source_type": "official",
+    "priority": 3
+  },
+  {
+    "id": "walkerplus-shinjuku",
+    "name": "ウォーカープラス 新宿区のイベント",
+    "url": "https://www.walkerplus.com/event_list/ar0313104/shinjuku/",
+    "source_type": "event_platform",
+    "priority": 4
+  },
+  {
+    "id": "enjoytokyo-shinjuku",
+    "name": "レッツエンジョイ東京 新宿駅周辺",
+    "url": "https://www.enjoytokyo.jp/event/list/sta200211/",
+    "source_type": "event_platform",
+    "priority": 4
+  },
+  {
+    "id": "tabelog-shinjuku",
+    "name": "食べログ 新宿・代々木・大久保",
+    "url": "https://tabelog.com/tokyo/A1304/",
+    "source_type": "gourmet_site",
+    "priority": 5
+  },
+  {
+    "id": "shinjukunews",
+    "name": "新宿ニュースBlog",
+    "url": "https://shinjukunews.com/",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "daily-shinjuku",
+    "name": "Daily Shinjuku",
+    "url": "https://daily-shinjuku.tokyo/",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-shinjuku",
+    "name": "PR TIMES「新宿」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E6%96%B0%E5%AE%BF",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news",
+    "name": "Google ニュース「新宿」",
+    "url": "https://news.google.com/rss/search?q=%E6%96%B0%E5%AE%BF&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-nishishinjuku",
+    "name": "PR TIMES「西新宿」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E8%A5%BF%E6%96%B0%E5%AE%BF",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-nishishinjuku",
+    "name": "Google ニュース「西新宿」",
+    "url": "https://news.google.com/rss/search?q=%E8%A5%BF%E6%96%B0%E5%AE%BF&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-kabukicho",
+    "name": "PR TIMES「歌舞伎町」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-kabukicho",
+    "name": "Google ニュース「歌舞伎町」",
+    "url": "https://news.google.com/rss/search?q=%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-shinjukusanchome",
+    "name": "PR TIMES「新宿三丁目」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E6%96%B0%E5%AE%BF%E4%B8%89%E4%B8%81%E7%9B%AE",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-shinjukusanchome",
+    "name": "Google ニュース「新宿三丁目」",
+    "url": "https://news.google.com/rss/search?q=%E6%96%B0%E5%AE%BF%E4%B8%89%E4%B8%81%E7%9B%AE&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-shinokubo",
+    "name": "PR TIMES「新大久保」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E6%96%B0%E5%A4%A7%E4%B9%85%E4%BF%9D",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-shinokubo",
+    "name": "Google ニュース「新大久保」",
+    "url": "https://news.google.com/rss/search?q=%E6%96%B0%E5%A4%A7%E4%B9%85%E4%BF%9D&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-takadanobaba",
+    "name": "PR TIMES「高田馬場」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E9%AB%98%E7%94%B0%E9%A6%AC%E5%A0%B4",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-takadanobaba",
+    "name": "Google ニュース「高田馬場」",
+    "url": "https://news.google.com/rss/search?q=%E9%AB%98%E7%94%B0%E9%A6%AC%E5%A0%B4&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-kagurazaka",
+    "name": "PR TIMES「神楽坂」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E7%A5%9E%E6%A5%BD%E5%9D%82",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-kagurazaka",
+    "name": "Google ニュース「神楽坂」",
+    "url": "https://news.google.com/rss/search?q=%E7%A5%9E%E6%A5%BD%E5%9D%82&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
+  },
+  {
+    "id": "prtimes-yotsuya",
+    "name": "PR TIMES「四谷」検索",
+    "url": "https://prtimes.jp/main/action.php?run=html&page=searchkey&search_word=%E5%9B%9B%E8%B0%B7",
+    "source_type": "press_release",
+    "priority": 3
+  },
+  {
+    "id": "google-news-yotsuya",
+    "name": "Google ニュース「四谷 新宿区」",
+    "url": "https://news.google.com/rss/search?q=%E5%9B%9B%E8%B0%B7%20%E6%96%B0%E5%AE%BF%E5%8C%BA&hl=ja&gl=JP&ceid=JP:ja",
+    "source_type": "web_media",
+    "priority": 4
   }
 ]
