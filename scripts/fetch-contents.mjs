@@ -568,9 +568,10 @@ const main = async () => {
 
       const page = { ...listing, url: detailUrl }
       const detail = await extractFromDetail(page)
+      // 個別ページの取得・抽出に失敗しても、出典は一覧(検索結果RSS等)ではなく個別URLにする
       if (detail?.candidate)
         await addCandidate(detail.candidate, page, detail.imgCandidates)
-      else await addCandidate(candidate, listing, imgCandidates)
+      else await addCandidate(candidate, page, imgCandidates)
     }
 
     await sleep(SOURCE_INTERVAL_MS)

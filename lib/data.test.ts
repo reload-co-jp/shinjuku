@@ -79,7 +79,15 @@ describe("data", () => {
       "illumination",
       new Date("2026-11-12T12:00:00+09:00")
     )
-    expect(ongoing.map((content) => content.id)).toEqual([3, 4])
+    // 取得スクリプトで記事が増えるため、IDの固定値ではなく条件を検査する
+    expect(ongoing.map((content) => content.id)).toEqual(
+      expect.arrayContaining([3, 4])
+    )
+    for (const content of ongoing) {
+      expect(content.category).toBe("illumination")
+      expect(content.start_at! <= "2026-11-12").toBe(true)
+      expect((content.end_at ?? content.start_at)! >= "2026-11-12").toBe(true)
+    }
   })
 
   it("getPlaceContents は開催中・今後・その他に重複なく分類", () => {

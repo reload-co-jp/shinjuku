@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "fetch-contents": "node scripts/fetch-contents.mjs"
+    "fetch-contents": "node scripts/fetch-contents.mjs && prettier --log-level warn --write data/contents.json"
   },
   "keywords": [],
   "author": "",
