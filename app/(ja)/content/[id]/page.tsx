@@ -19,6 +19,7 @@ import {
 import {
   contents,
   getContent,
+  getPlace,
   getRelatedContents,
   getSource,
   isEnded,
@@ -26,7 +27,7 @@ import {
 } from "@/lib/data"
 import { formatDate } from "@/lib/date"
 import { alternates, getDictionary, localePath } from "@/lib/i18n"
-import { SITE_URL } from "@/lib/json-ld"
+import { postalAddress, SITE_URL } from "@/lib/json-ld"
 import { EVENT_CATEGORIES } from "@/lib/types"
 
 export const generateStaticParams = () =>
@@ -80,6 +81,7 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
   const { locale, t } = await getDictionary()
   const { content, place } = localized(original, locale)
   const source = content.source_id ? getSource(content.source_id) : undefined
+  const jaPlace = original.place_id ? getPlace(original.place_id) : undefined
   const bodyHtml = DOMPurify.sanitize(
     // 本文先頭の見出しがタイトルと同じならh1と重複するため除く
     marked.parse(
@@ -123,10 +125,13 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
             image: `${SITE_URL}${content.image_url}`,
           }),
           url,
+          eventStatus: "https://schema.org/EventScheduled",
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           location: {
             "@type": "Place",
             name: place.name,
-            address: place.address,
+            // 翻訳版でも住所は日本語の原文から PostalAddress に分解する
+            address: postalAddress(jaPlace?.address ?? place.address),
           },
         }
       : {
