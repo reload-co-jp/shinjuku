@@ -9,6 +9,7 @@ import {
   LinkList,
 } from "@/components/elements/breadcrumbs"
 import { ContentList, Section } from "@/components/elements/content"
+import { googleMapsUrl, PlaceMap } from "@/components/elements/place-map"
 import { getPlace, getPlaceContents, localizePlace, places } from "@/lib/data"
 import { alternates, getDictionary, localePath } from "@/lib/i18n"
 import { SITE_URL } from "@/lib/json-ld"
@@ -87,7 +88,7 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
   const { latitude, longitude } = place
   const mapUrl =
     latitude != null && longitude != null
-      ? `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`
+      ? googleMapsUrl(latitude, longitude)
       : null
   const jsonLd = {
     "@context": "https://schema.org",
@@ -193,37 +194,13 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
             </a>
           </p>
         )}
-        {mapUrl && latitude != null && longitude != null && (
-          <>
-            <iframe
-              loading="lazy"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${(
-                longitude - 0.003
-              ).toFixed(
-                6
-              )},${(latitude - 0.002).toFixed(6)},${(longitude + 0.003).toFixed(6)},${(
-                latitude + 0.002
-              ).toFixed(6)}&layer=mapnik&marker=${latitude},${longitude}`}
-              style={{
-                aspectRatio: "4 / 3",
-                border: 0,
-                display: "block",
-                margin: "1.5rem 0 0",
-                width: "100%",
-              }}
-              title={t.place.map(place.name)}
-            />
-            <p style={{ fontSize: ".85rem", margin: ".5rem 0 0" }}>
-              <a
-                href={mapUrl}
-                rel="noreferrer"
-                style={{ color: "var(--accent)" }}
-                target="_blank"
-              >
-                {t.place.googleMaps}
-              </a>
-            </p>
-          </>
+        {latitude != null && longitude != null && (
+          <PlaceMap
+            latitude={latitude}
+            longitude={longitude}
+            linkLabel={t.place.googleMaps}
+            title={t.place.map(place.name)}
+          />
         )}
       </article>
       <InArticleAd />
