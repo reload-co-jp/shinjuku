@@ -7,6 +7,7 @@ import { notFound } from "next/navigation"
 import { FC } from "react"
 import { InArticleAd } from "@/components/elements/ad"
 import { Breadcrumbs, Crumb, JsonLd } from "@/components/elements/breadcrumbs"
+import { googleMapsUrl, PlaceMap } from "@/components/elements/place-map"
 import {
   AreaLabel,
   CategoryLabel,
@@ -19,6 +20,7 @@ import {
 import {
   contents,
   getContent,
+  getPlace,
   getRelatedContents,
   getSource,
   isEnded,
@@ -26,7 +28,7 @@ import {
 } from "@/lib/data"
 import { formatDate } from "@/lib/date"
 import { alternates, getDictionary, localePath } from "@/lib/i18n"
-import { SITE_URL } from "@/lib/json-ld"
+import { postalAddress, SITE_URL } from "@/lib/json-ld"
 import { EVENT_CATEGORIES } from "@/lib/types"
 
 export const generateStaticParams = () =>
@@ -80,6 +82,12 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
   const { locale, t } = await getDictionary()
   const { content, place } = localized(original, locale)
   const source = content.source_id ? getSource(content.source_id) : undefined
+  const jaPlace = original.place_id ? getPlace(original.place_id) : undefined
+  // 緯度経度があれば地図を表示し、構造化データにも含める
+  const coords =
+    jaPlace?.latitude != null && jaPlace.longitude != null
+      ? { latitude: jaPlace.latitude, longitude: jaPlace.longitude }
+      : undefined
   const bodyHtml = DOMPurify.sanitize(
     // 本文先頭の見出しがタイトルと同じならh1と重複するため除く
     marked.parse(
@@ -108,7 +116,7 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
     name: t.footer.operatorName,
     url: "https://reload.co.jp/",
   }
-  // ページ上に表示している情報のみ構造化データに含める
+  // ページ上に表示している情報のみ構造化データに含める（座標は地図として表示）
   // Event は location 必須のため、場所不明なら NewsArticle として出す
   const jsonLd =
     content.start_at && place
@@ -123,10 +131,17 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
             image: `${SITE_URL}${content.image_url}`,
           }),
           url,
+          eventStatus: "https://schema.org/EventScheduled",
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           location: {
             "@type": "Place",
             name: place.name,
-            address: place.address,
+            // 翻訳版でも住所は日本語の原文から PostalAddress に分解する
+            address: postalAddress(jaPlace?.address ?? place.address),
+            ...(coords && {
+              geo: { "@type": "GeoCoordinates", ...coords },
+              hasMap: googleMapsUrl(coords.latitude, coords.longitude),
+            }),
           },
         }
       : {
@@ -232,6 +247,13 @@ const Page: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
           {place && <InfoRow label={t.content.address} value={place.address} />}
           {source && <InfoRow label={t.content.source} value={source.name} />}
         </ul>
+        {place && coords && (
+          <PlaceMap
+            {...coords}
+            linkLabel={t.place.googleMaps}
+            title={t.place.map(place.name)}
+          />
+        )}
         {place && (
           <p style={{ fontSize: ".85rem", margin: "1.5rem 0 0" }}>
             <Link
